@@ -2,7 +2,7 @@ FROM tutum/debian:wheezy
 RUN groupadd -r mysql && useradd -r -g mysql mysql
 RUN apt-get -y update
 RUN apt-get -y install apt-spy
-RUN mv /etc/apt/source.list /etc/apt/source.list.bak
+RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 RUN apt-spy -t 2 -d wheezy
 RUN echo "mysql-server-5.5 mysql-server/root_password password root" | debconf-set-selections
 RUN echo "mysql-server-5.5 mysql-server/root_password_again password root" | debconf-set-selections
