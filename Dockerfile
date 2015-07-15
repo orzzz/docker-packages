@@ -4,9 +4,9 @@ RUN apt-get -y update
 RUN apt-get -y install apt-spy
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 RUN apt-spy -t 2 -d wheezy
-RUN echo "mysql-server-5.5 mysql-server/root_password password root" | debconf-set-selections
-RUN echo "mysql-server-5.5 mysql-server/root_password_again password root" | debconf-set-selections
-RUN apt-get -y install mysql-server-5.5 mysql-client
+RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
+RUN apt-get -y install mysql-server mysql-client
 RUN apt-get -y install openssh-server
 RUN echo "root:shuai6563" | chpasswd
 ENV PATH $PATH:/usr/local/mysql/bin:/usr/local/mysql/scripts
