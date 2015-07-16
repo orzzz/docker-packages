@@ -4,6 +4,7 @@ RUN apt-get -y update
 RUN apt-get -y install apt-spy
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 RUN apt-spy -t 2 -d wheezy
+RUN apt-get update
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
 RUN apt-get -y install mysql-server mysql-client
