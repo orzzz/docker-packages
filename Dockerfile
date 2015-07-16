@@ -29,5 +29,4 @@ RUN echo "skip-locking"					 >>/etc/mysql/conf.d/docker.cnf
 RUN echo "default-storage-engine=MyISAM" >>/etc/mysql/conf.d/docker.cnf
 RUN echo "init_file = /etc/mysql/init"   >>/etc/mysql/conf.d/docker.cnf
 RUN echo "GRANT ALL ON *.* TO ifishman@'%' IDENTIFIED BY 'shuai6563';" >/etc/mysql/init
-
-ENTRYPOINT service mysql restart
+RUN service mysql restart
