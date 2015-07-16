@@ -9,6 +9,7 @@ RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-s
 RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
 RUN apt-get -y install mysql-server mysql-client
 RUN apt-get -y install openssh-server
+RUN apt-get -y autoclean
 RUN echo "root:shuai6563" | chpasswd
 ENV PATH $PATH:/usr/local/mysql/bin:/usr/local/mysql/scripts
 RUN echo "[mysqld]" 					  >/etc/mysql/conf.d/docker.cnf
